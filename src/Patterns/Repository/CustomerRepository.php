@@ -112,4 +112,23 @@ class CustomerRepository {
         ]);
         return $id;
     }
+
+    public function deleteAddress(string $addressId): bool {
+        $stmt = $this->db->prepare("DELETE FROM direcciones_cliente WHERE id = :id");
+        return $stmt->execute([':id' => $addressId]);
+    }
+
+    public function voteHelpful(string $reviewId): bool {
+        $stmt = $this->db->prepare("UPDATE reviews SET helpful_count = helpful_count + 1 WHERE id = :id");
+        return $stmt->execute([':id' => $reviewId]);
+    }
+
+    public function getAllReviews(): array {
+        $stmt = $this->db->query("SELECT r.*, p.nombre AS producto_nombre FROM reviews r JOIN productos p ON r.producto_id = p.id ORDER BY r.helpful_count DESC, r.created_at DESC");
+        $reviews = $stmt->fetchAll();
+        foreach ($reviews as &$r) {
+            $r['imagenes'] = !empty($r['imagenes_json']) ? json_decode($r['imagenes_json'], true) : [];
+        }
+        return $reviews;
+    }
 }

@@ -67,6 +67,12 @@ try {
     elseif ($route === '/products' && $method === 'POST') {
         Response::success($gateway->products()->createProduct($payload), 'Producto creado con éxito', 201);
     }
+    elseif (preg_match('#^/products/([^/]+)/update$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->products()->updateProduct($matches[1], $payload));
+    }
+    elseif (preg_match('#^/products/([^/]+)/delete$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->products()->deleteProduct($matches[1]));
+    }
     elseif ($route === '/categories') {
         Response::success($gateway->products()->getCategories());
     }
@@ -79,6 +85,12 @@ try {
     }
     elseif (preg_match('#^/user/([^/]+)$#', $route, $matches) && $method === 'POST') {
         Response::success($gateway->users()->updateProfile($matches[1], $payload));
+    }
+    elseif ($route === '/users/register' && $method === 'POST') {
+        Response::success($gateway->users()->register($payload), 'Usuario registrado exitosamente', 201);
+    }
+    elseif ($route === '/users/role' && $method === 'POST') {
+        Response::success($gateway->users()->changeRole($payload['id'], $payload['role']));
     }
     elseif ($route === '/users') {
         Response::success($gateway->users()->listUsers());
@@ -149,20 +161,32 @@ try {
     elseif ($route === '/suppliers' && $method === 'GET') {
         Response::success($gateway->suppliers()->listSuppliers());
     }
+    elseif ($route === '/suppliers' && $method === 'POST') {
+        Response::success($gateway->suppliers()->addSupplier($payload), 'Proveedor registrado exitosamente', 201);
+    }
     elseif ($route === '/suppliers/orders' && $method === 'GET') {
         Response::success($gateway->suppliers()->listPurchaseOrders());
     }
     elseif ($route === '/suppliers/orders' && $method === 'POST') {
         Response::success($gateway->suppliers()->createPurchaseOrder($payload), 'Orden de compra radicada', 201);
     }
+    elseif (preg_match('#^/suppliers/orders/([^/]+)/receive$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->suppliers()->receiveOrder($matches[1]));
+    }
+    elseif (preg_match('#^/suppliers/orders/([^/]+)/pay$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->suppliers()->payOrder($matches[1]));
+    }
 
     // 8. Dominio de Clientes
-    elseif ($route === '/customers/addresses') {
+    elseif ($route === '/customers/addresses' && $method === 'GET') {
         $userId = $payload['user_id'] ?? 'usr-sofia';
         Response::success($gateway->customers()->getAddresses($userId));
     }
     elseif ($route === '/customers/addresses' && $method === 'POST') {
         Response::success($gateway->customers()->addAddress($payload), 'Dirección guardada', 201);
+    }
+    elseif (preg_match('#^/customers/addresses/([^/]+)/delete$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->customers()->deleteAddress($matches[1]));
     }
     elseif ($route === '/customers/pqrs' && $method === 'GET') {
         $userId = $payload['user_id'] ?? null;
@@ -171,8 +195,14 @@ try {
     elseif ($route === '/customers/pqrs' && $method === 'POST') {
         Response::success($gateway->customers()->createPqrs($payload), 'PQRS radicada exitosamente', 201);
     }
+    elseif (preg_match('#^/reviews/([^/]+)/vote$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->customers()->voteReview($matches[1]));
+    }
     elseif (preg_match('#^/reviews/([^/]+)$#', $route, $matches) && $method === 'GET') {
         Response::success($gateway->customers()->getProductReviews($matches[1]));
+    }
+    elseif ($route === '/reviews' && $method === 'GET') {
+        Response::success($gateway->customers()->listAllReviews());
     }
     elseif ($route === '/reviews' && $method === 'POST') {
         Response::success($gateway->customers()->addProductReview($payload), 'Reseña enviada', 201);
@@ -182,8 +212,14 @@ try {
     elseif ($route === '/admin/dashboard') {
         Response::success($gateway->getAdminDashboardSummary());
     }
-    elseif ($route === '/admin/staff') {
+    elseif ($route === '/admin/staff' && $method === 'GET') {
         Response::success($gateway->admin()->getStaff());
+    }
+    elseif ($route === '/admin/staff' && $method === 'POST') {
+        Response::success($gateway->admin()->addStaff($payload), 'Empleado creado', 201);
+    }
+    elseif (preg_match('#^/admin/staff/([^/]+)/toggle$#', $route, $matches) && $method === 'POST') {
+        Response::success($gateway->admin()->toggleStaff($matches[1]));
     }
     elseif ($route === '/admin/settings' && $method === 'GET') {
         Response::success($gateway->admin()->getSettings());

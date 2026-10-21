@@ -119,4 +119,40 @@ class ProductRepository {
 
         return $id;
     }
+
+    public function update(string $id, array $data): bool {
+        $sql = "UPDATE productos SET 
+                    nombre = :nombre,
+                    marca = :marca,
+                    categoria_id = :categoria_id,
+                    precio = :precio,
+                    precio_original = :precio_original,
+                    descripcion = :descripcion,
+                    nota_formula = :nota_formula,
+                    volumen = :volumen,
+                    badge = :badge,
+                    ubicacion_pasillo = :ubicacion_pasillo,
+                    stock_minimo_recomendado = :stock_minimo_recomendado
+                WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        return $stmt->execute([
+            ':id' => $id,
+            ':nombre' => $data['nombre'],
+            ':marca' => $data['marca'] ?? 'Belleza Derm',
+            ':categoria_id' => $data['categoria_id'],
+            ':precio' => $data['precio'],
+            ':precio_original' => $data['precio_original'] ?? null,
+            ':descripcion' => $data['descripcion'],
+            ':nota_formula' => $data['nota_formula'] ?? '',
+            ':volumen' => $data['volumen'] ?? '30 ml',
+            ':badge' => $data['badge'] ?? null,
+            ':ubicacion_pasillo' => $data['ubicacion_pasillo'] ?? 'Pasillo General',
+            ':stock_minimo_recomendado' => $data['stock_minimo_recomendado'] ?? 10,
+        ]);
+    }
+
+    public function delete(string $id): bool {
+        $stmt = $this->db->prepare("UPDATE productos SET activo = 0 WHERE id = :id");
+        return $stmt->execute([':id' => $id]);
+    }
 }

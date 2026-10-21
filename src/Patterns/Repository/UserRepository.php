@@ -59,4 +59,31 @@ class UserRepository {
         $stmt = $this->db->prepare("UPDATE usuarios SET puntos_glow = puntos_glow + :pts WHERE id = :id");
         return $stmt->execute([':pts' => $points, ':id' => $userId]);
     }
+
+    public function createUser(array $data): string {
+        $id = $data['id'] ?? 'usr-' . time();
+        $passwordHash = password_hash($data['password'] ?? 'belleza123', PASSWORD_BCRYPT);
+        $sql = "INSERT INTO usuarios (id, nombre, primer_nombre, email, password_hash, rol, tipo_documento, numero_documento, telefono, nivel_glow, puntos_glow, sede_favorita_id, tipo_piel)
+                VALUES (:id, :nom, :pnom, :email, :pass, :rol, :tdoc, :ndoc, :tel, 'Glow VIP • Nivel Oro', 1000, :sede, :piel)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':id' => $id,
+            ':nom' => $data['nombre'],
+            ':pnom' => $data['primer_nombre'] ?? explode(' ', $data['nombre'])[0],
+            ':email' => $data['email'],
+            ':pass' => $passwordHash,
+            ':rol' => $data['rol'] ?? 'cliente',
+            ':tdoc' => $data['tipo_documento'] ?? 'C.C.',
+            ':ndoc' => $data['numero_documento'] ?? '',
+            ':tel' => $data['telefono'] ?? '',
+            ':sede' => $data['sede_favorita_id'] ?? 'bogota',
+            ':piel' => $data['tipo_piel'] ?? 'mixta'
+        ]);
+        return $id;
+    }
+
+    public function updateRole(string $id, string $role): bool {
+        $stmt = $this->db->prepare("UPDATE usuarios SET rol = :rol WHERE id = :id");
+        return $stmt->execute([':rol' => $role, ':id' => $id]);
+    }
 }

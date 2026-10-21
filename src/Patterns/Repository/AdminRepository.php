@@ -48,4 +48,25 @@ class AdminRepository {
         $stmt = $this->db->prepare("INSERT INTO configuracion_sistema (clave, valor) VALUES (:k, :v) ON DUPLICATE KEY UPDATE valor = VALUES(valor)");
         return $stmt->execute([':k' => $key, ':v' => $value]);
     }
+
+    public function addStaff(array $data): string {
+        $id = 'emp-' . rand(10, 99);
+        $sql = "INSERT INTO personal (id, usuario_id, cargo, sede_asignada_id, salario_base, fecha_ingreso, estado)
+                VALUES (:id, :uid, :cargo, :sede, :salario, :fecha, 'activo')";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':id' => $id,
+            ':uid' => $data['usuario_id'],
+            ':cargo' => $data['cargo'],
+            ':sede' => $data['sede_id'] ?? 'bogota',
+            ':salario' => $data['salario'] ?? 2000000,
+            ':fecha' => date('Y-m-d')
+        ]);
+        return $id;
+    }
+
+    public function toggleStaffStatus(string $staffId): bool {
+        $stmt = $this->db->prepare("UPDATE personal SET estado = IF(estado = 'activo', 'inactivo', 'activo') WHERE id = :id");
+        return $stmt->execute([':id' => $staffId]);
+    }
 }

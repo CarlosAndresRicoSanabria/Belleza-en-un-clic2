@@ -52,4 +52,24 @@ class CustomersService {
             'message' => '¡Gracias por tu reseña! Tu opinión ayuda a la comunidad Glow.'
         ];
     }
+
+    public function deleteAddress(string $addressId): array {
+        $ok = $this->repo->deleteAddress($addressId);
+        return [
+            'success' => $ok,
+            'message' => 'Dirección eliminada de la libreta.'
+        ];
+    }
+
+    public function voteReview(string $reviewId): array {
+        $ok = $this->repo->voteHelpful($reviewId);
+        return [
+            'success' => $ok,
+            'message' => 'Voto de utilidad registrado.'
+        ];
+    }
+
+    public function listAllReviews(): array {
+        return $this->repo->getAllReviews();
+    }
 }

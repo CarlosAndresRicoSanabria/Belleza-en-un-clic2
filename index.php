@@ -922,45 +922,391 @@ $user = $bootstrap['usuario'] ?? [];
         </div>
     </div>
 
-    <!-- Inter-Sede Transfer Modal -->
-    <div id="transfer-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. Modal: Nuevo Producto (Dominio de Productos) -->
+    <div id="new-product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-rose-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
             <div class="flex items-center justify-between border-b border-rose-100 pb-3">
-                <h3 class="font-serif font-bold text-base text-[#2C1810]">Transferencia Inter-Sedes de Inventario</h3>
-                <button onclick="closeTransferModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">add_box</span>
+                    <h3 class="font-serif font-bold text-lg text-[#2C1810]">Registrar Nuevo Producto Dermocosmético</h3>
+                </div>
+                <button onclick="closeNewProductModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
             </div>
             <div class="space-y-3 text-xs">
                 <div>
-                    <label class="block font-semibold mb-1">Producto a Transferir</label>
-                    <select id="transfer-product-id" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
-                        <!-- Opciones cargadas con JS -->
+                    <label class="block font-semibold mb-1 text-gray-700">Nombre del Producto</label>
+                    <input type="text" id="np-nombre" placeholder="Ej: Gel Limpiador Espumoso con Ácido Salicílico 2%" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none focus:ring-2 focus:ring-[#8A4853]">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Marca / Laboratorio</label>
+                        <input type="text" id="np-marca" value="RadiantSkin" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Categoría</label>
+                        <select id="np-categoria" class="w-full border border-rose-200 rounded-xl p-2.5 bg-white outline-none">
+                            <option value="facial">Cuidado Facial</option>
+                            <option value="serums">Sérums &amp; Tratamientos</option>
+                            <option value="maquillaje">Maquillaje</option>
+                            <option value="solar">Protección Solar</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Precio COP (con IVA)</label>
+                        <input type="number" id="np-precio" placeholder="85000" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Volumen / Peso</label>
+                        <input type="text" id="np-volumen" value="50 ml" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1 text-gray-700">Descripción Clínica</label>
+                    <textarea id="np-desc" rows="2" placeholder="Acción terapéutica, hidratación o cobertura..." class="w-full border border-rose-200 rounded-xl p-2.5 outline-none"></textarea>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div>
+                        <label class="block font-semibold text-[10px] mb-1 text-gray-700">Stock Bogotá</label>
+                        <input type="number" id="np-stock-bog" value="15" class="w-full border border-rose-200 rounded-xl p-2 text-center outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-[10px] mb-1 text-gray-700">Stock Medellín</label>
+                        <input type="number" id="np-stock-med" value="10" class="w-full border border-rose-200 rounded-xl p-2 text-center outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold text-[10px] mb-1 text-gray-700">Stock Cali</label>
+                        <input type="number" id="np-stock-cal" value="8" class="w-full border border-rose-200 rounded-xl p-2 text-center outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Registro INVIMA</label>
+                        <input type="text" id="np-invima" value="NSOC98214-26CO" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1 text-gray-700">Ubicación Pasillo / Gaveta</label>
+                        <input type="text" id="np-pasillo" value="Pasillo B · Estante 2" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                </div>
+                <button onclick="submitNewProduct()" class="w-full py-3 bg-[#8A4853] text-white font-bold rounded-xl shadow-lg hover:bg-[#682D35] transition">
+                    Guardar Producto en MySQL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Modal: Editar Producto (Dominio de Productos) -->
+    <div id="edit-product-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-rose-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">edit</span>
+                    <h3 class="font-serif font-bold text-lg text-[#2C1810]">Editar Producto en Catálogo</h3>
+                </div>
+                <button onclick="closeProductEditModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <input type="hidden" id="ep-id">
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Nombre</label>
+                    <input type="text" id="ep-nombre" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1">Precio COP</label>
+                        <input type="number" id="ep-precio" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Badge / Promoción</label>
+                        <input type="text" id="ep-badge" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Descripción</label>
+                    <textarea id="ep-desc" rows="3" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-semibold mb-1">Ubicación Pasillo</label>
+                        <input type="text" id="ep-pasillo" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Stock Mínimo Alerta</label>
+                        <input type="number" id="ep-minstock" class="w-full border border-rose-200 rounded-xl p-2.5 outline-none">
+                    </div>
+                </div>
+                <div class="flex gap-2 pt-2">
+                    <button onclick="submitUpdateProduct()" class="flex-1 py-3 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                        Actualizar en MySQL
+                    </button>
+                    <button onclick="deleteProductFromModal()" class="px-4 py-3 bg-rose-100 text-rose-700 font-bold rounded-xl hover:bg-rose-200 transition">
+                        Desactivar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Modal: Nuevo Proveedor (Dominio de Proveedores) -->
+    <div id="new-supplier-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">handshake</span>
+                    <h3 class="font-serif font-bold text-base text-[#2C1810]">Registrar Laboratorio Proveedor</h3>
+                </div>
+                <button onclick="closeNewSupplierModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Razón Social</label>
+                    <input type="text" id="nprov-razon" placeholder="Laboratorios DermoSkin Colombia S.A.S." class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">NIT</label>
+                        <input type="text" id="nprov-nit" placeholder="901.884.210-9" class="w-full border border-rose-200 rounded-xl p-2 outline-none font-mono">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Ciudad Sede</label>
+                        <input type="text" id="nprov-ciudad" value="Bogotá D.C." class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">Contacto Nombre</label>
+                        <input type="text" id="nprov-contacto" placeholder="Dra. Andrea Peña" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Teléfono</label>
+                        <input type="text" id="nprov-tel" placeholder="+57 (601) 880 1234" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Correo Electrónico</label>
+                    <input type="email" id="nprov-email" placeholder="pedidos@laboratorio.co" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Categoría de Suministro</label>
+                    <input type="text" id="nprov-cat" value="Sérums &amp; Principios Activos" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <button onclick="submitNewSupplier()" class="w-full py-2.5 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                    Guardar Proveedor en MySQL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Modal: Emitir Orden de Compra (Dominio de Proveedores) -->
+    <div id="new-po-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">post_add</span>
+                    <h3 class="font-serif font-bold text-base text-[#2C1810]">Emitir Orden de Compra (OC)</h3>
+                </div>
+                <button onclick="closePurchaseOrderModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Proveedor / Laboratorio</label>
+                    <select id="po-supplier-id" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                        <!-- JS options -->
                     </select>
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                     <div>
-                        <label class="block font-semibold mb-1">Sede de Origen</label>
-                        <select id="transfer-source" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
-                            <option value="bogota">Sede Bogotá</option>
-                            <option value="medellin">Sede Medellín</option>
-                            <option value="cali">Sede Cali</option>
+                        <label class="block font-semibold mb-1">Sede de Destino</label>
+                        <select id="po-sede-id" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                            <option value="bogota">Sede Bogotá (Calle 85)</option>
+                            <option value="medellin">Sede Medellín (El Poblado)</option>
+                            <option value="cali">Sede Cali (Granada)</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block font-semibold mb-1">Sede de Destino</label>
-                        <select id="transfer-target" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
-                            <option value="medellin">Sede Medellín</option>
-                            <option value="bogota">Sede Bogotá</option>
-                            <option value="cali">Sede Cali</option>
+                        <label class="block font-semibold mb-1">Monto Estimado COP</label>
+                        <input type="number" id="po-total" value="4500000" class="w-full border border-rose-200 rounded-xl p-2 outline-none font-bold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Notas / Lotes Solicitados</label>
+                    <textarea id="po-notas" rows="2" class="w-full border border-rose-200 rounded-xl p-2 outline-none">Reabastecimiento urgente de stock crítico con certificado de análisis INVIMA.</textarea>
+                </div>
+                <button onclick="submitPurchaseOrder()" class="w-full py-2.5 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                    Radicar Orden de Compra en MySQL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Modal: Nueva Dirección (Dominio de Clientes) -->
+    <div id="new-address-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">add_location</span>
+                    <h3 class="font-serif font-bold text-base text-[#2C1810]">Agregar Dirección de Entrega</h3>
+                </div>
+                <button onclick="closeNewAddressModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Nombre / Alias</label>
+                    <input type="text" id="naddr-nombre" placeholder="Ej: Consultorio / Segunda Residencia" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Dirección Exacta</label>
+                    <input type="text" id="naddr-line" placeholder="Calle 116 # 18B-24, Consultorio 302" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">Ciudad</label>
+                        <select id="naddr-ciudad" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                            <option value="Bogotá D.C.">Bogotá D.C.</option>
+                            <option value="Medellín">Medellín</option>
+                            <option value="Cali">Cali</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Barrio / Sector</label>
+                        <input type="text" id="naddr-barrio" placeholder="Santa Bárbara" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Notas para el Repartidor</label>
+                    <input type="text" id="naddr-notas" placeholder="Dejar en recepción médica torre 1" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <button onclick="submitNewAddress()" class="w-full py-2.5 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                    Guardar en Mi Libreta (MySQL)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Modal: Nueva Reseña Dermocosmética (Dominio de Clientes) -->
+    <div id="new-review-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">rate_review</span>
+                    <h3 class="font-serif font-bold text-base text-[#2C1810]">Escribir Reseña Clínica</h3>
+                </div>
+                <button onclick="closeReviewModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Producto</label>
+                    <select id="nrev-prod-id" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                        <!-- JS options -->
+                    </select>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">Calificación</label>
+                        <select id="nrev-rating" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none font-bold">
+                            <option value="5">★★★★★ (5/5)</option>
+                            <option value="4">★★★★☆ (4/5)</option>
+                            <option value="3">★★★☆☆ (3/5)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Tu Tipo de Piel</label>
+                        <select id="nrev-skin" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                            <option value="mixta">Piel Mixta</option>
+                            <option value="grasa">Piel Grasa</option>
+                            <option value="sensible">Piel Sensible / Rosácea</option>
+                            <option value="seca">Piel Seca</option>
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block font-semibold mb-1">Cantidad de Unidades</label>
-                    <input type="number" id="transfer-qty" value="5" min="1" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    <label class="block font-semibold mb-1">Título de la Reseña</label>
+                    <input type="text" id="nrev-titulo" placeholder="¡Sensación ligera y reduce brillo en minutos!" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
                 </div>
-                <button onclick="executeTransferStock()" class="w-full py-2.5 bg-emerald-700 text-white font-bold rounded-xl shadow hover:bg-emerald-800 transition">
-                    Ejecutar Transferencia en MySQL
+                <div>
+                    <label class="block font-semibold mb-1">Experiencia y Resultados</label>
+                    <textarea id="nrev-content" rows="3" placeholder="Describe textura, tiempo de absorción, compatibilidad con maquillaje..." class="w-full border border-rose-200 rounded-xl p-2 outline-none"></textarea>
+                </div>
+                <button onclick="submitReview()" class="w-full py-2.5 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                    Publicar Reseña en MySQL
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Modal: Registrar Empleado / Personal (Dominio Administrativo) -->
+    <div id="new-staff-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-4 shadow-2xl border border-rose-200">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#8A4853]">badge</span>
+                    <h3 class="font-serif font-bold text-base text-[#2C1810]">Registrar Personal de Sede</h3>
+                </div>
+                <button onclick="closeNewStaffModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div class="space-y-3 text-xs">
+                <div>
+                    <label class="block font-semibold mb-1">Nombre Completo</label>
+                    <input type="text" id="nstaff-nombre" placeholder="Laura Marcela Vargas" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">Correo Corporativo</label>
+                        <input type="email" id="nstaff-email" placeholder="laura.vargas@bellezaenunclic.com" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Teléfono</label>
+                        <input type="text" id="nstaff-tel" placeholder="+57 314 555 8899" class="w-full border border-rose-200 rounded-xl p-2 outline-none">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label class="block font-semibold mb-1">Cargo / Función</label>
+                        <select id="nstaff-cargo" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                            <option value="Dermoconsultora Especializada">Dermoconsultora Especializada</option>
+                            <option value="Operador Logístico de Bodega">Operador Logístico de Bodega</option>
+                            <option value="Cajero / Facturación DIAN">Cajero / Facturación DIAN</option>
+                            <option value="Regente de Farmacia">Regente de Farmacia</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1">Sede Asignada</label>
+                        <select id="nstaff-sede" class="w-full border border-rose-200 rounded-xl p-2 bg-white outline-none">
+                            <option value="bogota">Sede Bogotá (Calle 85)</option>
+                            <option value="medellin">Sede Medellín (El Poblado)</option>
+                            <option value="cali">Sede Cali (Granada)</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-semibold mb-1">Salario Base Mensual COP</label>
+                    <input type="number" id="nstaff-salario" value="2300000" class="w-full border border-rose-200 rounded-xl p-2 outline-none font-bold">
+                </div>
+                <button onclick="submitNewStaff()" class="w-full py-2.5 bg-[#8A4853] text-white font-bold rounded-xl shadow hover:bg-[#682D35] transition">
+                    Vincular Empleado en MySQL
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Modal: Visor Oficial Factura Electrónica DIAN con CUFE -->
+    <div id="dian-invoice-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 space-y-4 shadow-2xl border border-rose-200 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between border-b border-rose-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-purple-700">receipt</span>
+                    <h3 class="font-serif font-bold text-lg text-[#2C1810]">Comprobante Fiscal DIAN - Factura Electrónica</h3>
+                </div>
+                <button onclick="closeDianModal()" class="text-gray-400 hover:text-gray-600"><span class="material-symbols-outlined">close</span></button>
+            </div>
+            <div id="dian-modal-body" class="space-y-4 text-xs">
+                <!-- Dinámico -->
             </div>
         </div>
     </div>

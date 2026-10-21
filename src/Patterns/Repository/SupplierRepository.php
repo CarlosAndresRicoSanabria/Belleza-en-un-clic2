@@ -45,4 +45,33 @@ class SupplierRepository {
         ]);
         return $id;
     }
+
+    public function addSupplier(array $data): string {
+        $id = 'prov-' . time();
+        $sql = "INSERT INTO proveedores (id, nit, razon_social, contacto_nombre, email, telefono, direccion, ciudad, categoria_suministro)
+                VALUES (:id, :nit, :razon, :contacto, :email, :tel, :dir, :ciudad, :cat)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':id' => $id,
+            ':nit' => $data['nit'],
+            ':razon' => $data['razon_social'],
+            ':contacto' => $data['contacto_nombre'] ?? 'Contacto Principal',
+            ':email' => $data['email'],
+            ':tel' => $data['telefono'] ?? '+57 (601) 000 0000',
+            ':dir' => $data['direccion'] ?? 'Zona Industrial',
+            ':ciudad' => $data['ciudad'] ?? 'Bogotá D.C.',
+            ':cat' => $data['categoria_suministro'] ?? 'Dermocosmética'
+        ]);
+        return $id;
+    }
+
+    public function receivePurchaseOrder(string $orderId): bool {
+        $stmt = $this->db->prepare("UPDATE ordenes_compra SET estado = 'recibida' WHERE id = :id");
+        return $stmt->execute([':id' => $orderId]);
+    }
+
+    public function markPurchaseOrderPaid(string $orderId): bool {
+        $stmt = $this->db->prepare("UPDATE ordenes_compra SET estado = 'pagada' WHERE id = :id");
+        return $stmt->execute([':id' => $orderId]);
+    }
 }

@@ -34,4 +34,21 @@ class AdminService {
             'message' => 'Parámetro de configuración actualizado correctamente.'
         ];
     }
+
+    public function addStaff(array $data): array {
+        $id = $this->repo->addStaff($data);
+        return [
+            'success' => true,
+            'id'      => $id,
+            'message' => 'Empleado registrado exitosamente en MySQL.'
+        ];
+    }
+
+    public function toggleStaff(string $staffId): array {
+        $ok = $this->repo->toggleStaffStatus($staffId);
+        return [
+            'success' => $ok,
+            'message' => 'Estado del empleado actualizado.'
+        ];
+    }
 }

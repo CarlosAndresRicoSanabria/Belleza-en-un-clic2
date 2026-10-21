@@ -33,4 +33,20 @@ class ProductsService {
             'message' => 'Producto registrado exitosamente en el catálogo dermatológico.'
         ];
     }
+
+    public function updateProduct(string $id, array $data): array {
+        $ok = $this->repo->update($id, $data);
+        return [
+            'success' => $ok,
+            'message' => 'Producto actualizado con éxito.'
+        ];
+    }
+
+    public function deleteProduct(string $id): array {
+        $ok = $this->repo->delete($id);
+        return [
+            'success' => $ok,
+            'message' => 'Producto desactivado del catálogo.'
+        ];
+    }
 }

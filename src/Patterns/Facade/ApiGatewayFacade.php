@@ -58,6 +58,8 @@ class ApiGatewayFacade {
             'pedidos_cola'   => $this->orders->listOrders(10),
             'proveedores'    => $this->suppliers->listSuppliers(),
             'sedes'          => $this->inventory->getSedes(),
+            'personal'       => $this->admin->getStaff(),
+            'ordenes_compra' => $this->suppliers->listPurchaseOrders(),
         ];
     }
 
@@ -73,6 +75,7 @@ class ApiGatewayFacade {
             'direcciones' => $this->customers->getAddresses($userId),
             'pedidos'     => $this->orders->listOrders(20),
             'pqrs'        => $this->customers->getPqrs($userId),
+            'reviews'     => $this->customers->listAllReviews(),
         ];
     }
 }

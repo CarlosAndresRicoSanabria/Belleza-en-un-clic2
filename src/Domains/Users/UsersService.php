@@ -41,4 +41,28 @@ class UsersService {
         }
         return null;
     }
+
+    public function register(array $data): array {
+        if (empty($data['email']) || empty($data['nombre'])) {
+            throw new \Exception("Nombre y correo electrónico son requeridos.");
+        }
+        if ($this->repo->findByEmail($data['email'])) {
+            throw new \Exception("El correo ya se encuentra registrado.");
+        }
+        $id = $this->repo->createUser($data);
+        return [
+            'success' => true,
+            'id'      => $id,
+            'message' => 'Usuario registrado exitosamente en el sistema.'
+        ];
+    }
+
+    public function changeRole(string $id, string $role): array {
+        $ok = $this->repo->updateRole($id, $role);
+        return [
+            'success' => $ok,
+            'role'    => $role,
+            'message' => "Rol de usuario actualizado a '{$role}'."
+        ];
+    }
 }
