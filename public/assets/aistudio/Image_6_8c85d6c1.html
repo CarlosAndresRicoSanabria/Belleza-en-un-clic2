@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>Belleza en un Clic - Panel Operativo</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-tint":"#8c4b55","tertiary-fixed-dim":"#98d4a8","rose-dust":"#D8A49B","secondary-fixed-dim":"#ffb3b5","tertiary-fixed":"#b4f1c3","on-surface-variant":"#524345","on-tertiary-container":"#f6fff4","surface-container-lowest":"#ffffff","surface":"#fff8f7","status-in-stock":"#2E6B4F","error":"#ba1a1a","secondary-container":"#fe8d93","surface-ivory":"#FAF8F5","surface-dim":"#e4d7d7","surface-variant":"#eddfe0","on-tertiary-fixed":"#00210e","on-primary-container":"#fffbff","on-error":"#ffffff","surface-container":"#f8ebeb","on-primary":"#ffffff","status-out-of-stock":"#9E2A2B","surface-container-low":"#fef0f1","on-tertiary-fixed-variant":"#16512f","inverse-on-surface":"#fbeeee","on-secondary-fixed":"#40000b","outline":"#857374","on-primary-fixed-variant":"#70343e","error-container":"#ffdad6","secondary":"#9c4048","nude-soft":"#E8D8CF","tertiary-container":"#48805a","on-background":"#201a1b","primary":"#8a4853","surface-clean":"#F4F3F0","outline-variant":"#d7c1c3","on-secondary-fixed-variant":"#7e2932","charcoal-ink":"#1E1A1D","primary-fixed":"#ffd9dd","primary-container":"#a6606b","on-secondary":"#ffffff","on-error-container":"#93000a","on-secondary-container":"#77242d","surface-container-high":"#f2e5e5","surface-bright":"#fff8f7","inverse-surface":"#362f2f","background":"#fff8f7","on-tertiary":"#ffffff","on-surface":"#201a1b","primary-fixed-dim":"#ffb2bc","inverse-primary":"#ffb2bc","tertiary":"#2e6743","on-primary-fixed":"#3a0915","status-low-stock":"#B46522","secondary-fixed":"#ffdada","surface-container-highest":"#eddfe0"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","space-sm":"0.5rem","gutter-lg":"2rem","margin-mobile":"1rem","gutter-sm":"1rem","space-lg":"1.5rem","margin":"2rem","margin-desktop":"3rem","space-2xl":"4rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter":"1.5rem"},"fontFamily":{"label-sm":["Plus Jakarta Sans"],"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-micro":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"]},"fontSize":{"label-sm":["0.75rem",{"lineHeight":"1rem","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["3.5rem",{"lineHeight":"4rem","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-md":["1.75rem",{"lineHeight":"2.25rem","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["1.125rem",{"lineHeight":"1.75rem","letterSpacing":"0.01em","fontWeight":"400"}],"headline-lg":["2.5rem",{"lineHeight":"3rem","letterSpacing":"-0.02em","fontWeight":"600"}],"label-md":["0.875rem",{"lineHeight":"1.25rem","letterSpacing":"0.03em","fontWeight":"600"}],"headline-sm":["1.25rem",{"lineHeight":"1.75rem","letterSpacing":"0em","fontWeight":"600"}],"headline-lg-mobile":["1.875rem",{"lineHeight":"2.25rem","letterSpacing":"-0.015em","fontWeight":"600"}],"body-sm":["0.8125rem",{"lineHeight":"1.25rem","letterSpacing":"0.015em","fontWeight":"400"}],"title-md":["1.125rem",{"lineHeight":"1.5rem","letterSpacing":"0em","fontWeight":"600"}],"label-micro":["0.6875rem",{"lineHeight":"0.875rem","letterSpacing":"0.08em","fontWeight":"700"}],"body-md":["0.9375rem",{"lineHeight":"1.5rem","letterSpacing":"0.01em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-6 pb-6 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-6 mb-8 flex items-center gap-3"><img alt="Belleza en un Clic Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDINIssPX-rdoZqYVUlTqTwETFVkF_JrPO0ORbkl0h78L16XX0jml8EzErU9yvCCTb-j-SzpKIYhRQ9OvriBHYH_AowdOCT1gd1GIRgpSy5GQQoH7Pw7954dtLe_swr6ydtQvVCf7j8lWwiaMNC81HHWmjepDGGCI1kimpzXRYzH9zYOPw-PloqGwkkXXDxo3oiS5CmNXtUH5qTP2D96HUAHN71o2pwRKBIeFVj4bmqIr6eZw3PYj_B"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight">Belleza Operativa</span><span class="font-label-micro text-label-micro text-on-surface-variant">Multi-Sede Logistics</span></div></div><div class="px-6 mb-6"><div class="p-3 bg-surface-container-lowest rounded-xl"><div class="flex items-center gap-2 mb-1.5"><span class="material-symbols-outlined text-sm text-secondary">domain</span><span class="font-label-micro text-label-micro text-on-surface-variant uppercase tracking-wider">Sede de Operación</span></div><select aria-label="Seleccionar Sede de Despacho" class="w-full bg-transparent font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer"><option selected="" value="bogota">Sede Bogotá - Centro</option><option value="medellin">Sede Medellín - Poblado</option><option value="cali">Sede Cali - Granada</option></select></div></div><nav class="flex-1 px-4 space-y-1" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-sm"><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="gestion-inventario" href="#"><span class="material-symbols-outlined text-xl">inventory_2</span><span>Inventario por Sede</span></a><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="pedidos-y-despacho" href="#"><span class="material-symbols-outlined text-xl">local_shipping</span><span>Pedidos &amp; Despacho</span></a><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="traslados-entre-sedes" href="#"><span class="material-symbols-outlined text-xl">swap_horiz</span><span>Traslados de Stock</span></a><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="catalogo-productos" href="#"><span class="material-symbols-outlined text-xl">category</span><span>Catálogo &amp; SKUs</span></a><a class="flex items-center gap-3 px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-md text-label-md transition-colors" data-path="pqrs-administracion" href="#"><span class="material-symbols-outlined text-xl">support_agent</span><span>Gestión PQRS</span></a></nav><div class="px-4 pt-4"><div class="p-3 bg-surface-container-lowest rounded-xl flex items-center gap-3"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQy6-y7MGEg28Zfv6iFARHrWiMhnVMF8qbWG8QiFEbB9rGjZfijNiiyDPebCsmBQkg1ROgB-c2ieiE80Ehgeu9Zk-ExHlcLgcoa2XUgrG6ksxJbEXR1I1lTayorOFTTtTuW2U76uuTQEOlkmq8hQnMKFG-zzBoSWM25qUbcWdl0WMBowaX5oEXuqTby7RVge1XOcaiDpuWwFV4SEqf6M-2qhhnfV2OkERxWqZ6nLnNGLS0i1whMsZr"/><div class="flex-1 min-w-0"><p class="font-label-sm text-label-sm text-on-surface truncate">Valeria Gómez</p><p class="font-label-micro text-label-micro text-on-surface-variant truncate">Admin de Operaciones</p></div><a class="text-on-surface-variant hover:text-primary" data-path="catalogo" href="#" title="Volver a la Tienda"><span class="material-symbols-outlined text-lg">store</span></a></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-8 flex items-center justify-between"><div class="flex items-center gap-4 flex-1 max-w-lg"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span><input class="w-full pl-9 pr-4 py-2 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none ring-1 ring-nude-soft/60 focus:ring-primary" placeholder="Buscar por SKU, código de barras o lote..." type="search"/></div></div><div class="flex items-center gap-4"><div class="flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-full"><span class="w-2 h-2 rounded-full bg-status-in-stock"></span><span class="font-label-micro text-label-micro text-status-in-stock">Sincronización en vivo</span></div><div class="flex items-center gap-2"><select aria-label="Cambiar vista de rol" class="bg-surface-container px-3 py-1.5 rounded-full font-label-micro text-label-micro text-on-surface focus:outline-none cursor-pointer"><option selected="" value="admin">Modo: Administrador</option><option value="empleado">Modo: Empleado Sede</option><option value="cliente">Modo: Vista Cliente</option></select><button aria-label="Notificaciones operativas" class="p-2 text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined">notifications</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQy6-y7MGEg28Zfv6iFARHrWiMhnVMF8qbWG8QiFEbB9rGjZfijNiiyDPebCsmBQkg1ROgB-c2ieiE80Ehgeu9Zk-ExHlcLgcoa2XUgrG6ksxJbEXR1I1lTayorOFTTtTuW2U76uuTQEOlkmq8hQnMKFG-zzBoSWM25qUbcWdl0WMBowaX5oEXuqTby7RVge1XOcaiDpuWwFV4SEqf6M-2qhhnfV2OkERxWqZ6nLnNGLS0i1whMsZr"/></div></div></header><main class="relative pt-16 w-full px-8 py-6 bg-surface"><div class="flex flex-col w-full pb-16">
+<!-- Top Context & Branch Selection -->
+<section class="flex flex-col xl:flex-row xl:items-end justify-between gap-6 mb-8">
+<div class="flex flex-col">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-micro text-label-micro uppercase tracking-wider text-primary">Flujo Operativo 2.3</span>
+<span class="text-outline-variant font-label-micro text-label-micro">•</span>
+<span class="font-label-micro text-label-micro uppercase tracking-wider text-on-surface-variant">RF-03 &amp; RF-04 PostgreSQL Live</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-charcoal-ink tracking-tight">Inventario Multisede &amp; Despacho</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mt-1">
+        Consolidación de existencias en tiempo real, control de mermas y balance logístico de SKUs cosméticos.
+      </p>
+</div>
+<!-- Branch Pills Switcher -->
+<div class="bg-surface-container-low p-1.5 rounded-full flex items-center gap-1 self-start xl:self-auto shadow-sm">
+<button class="sede-tab px-5 py-2 rounded-full font-label-md text-label-md bg-secondary text-on-secondary shadow-sm transition-all duration-200" onclick="selectSede(this, 'bogota')" type="button">
+        Sede Principal Bogotá
+      </button>
+<button class="sede-tab px-5 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all duration-200" onclick="selectSede(this, 'medellin')" type="button">
+        Sede Medellín
+      </button>
+<button class="sede-tab px-5 py-2 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all duration-200" onclick="selectSede(this, 'cali')" type="button">
+        Sede Cali
+      </button>
+</div>
+</section>
+<!-- Metric KPI Cards Bento -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+<!-- Card 1: SKUs -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary-fixed/20 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Productos Activos</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl">category</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-charcoal-ink">142</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">SKUs</span>
+</div>
+<p class="font-body-sm text-body-sm text-status-in-stock mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> 100% categorizados
+        </p>
+</div>
+</div>
+<!-- Card 2: Stock Consolidado -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-tertiary-fixed/30 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Stock Consolidado</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl">warehouse</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-charcoal-ink" id="metric-stock-total">3.840</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">unidades</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Stock Bajo -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-rose-dust/30 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase text-status-low-stock tracking-wider">Stock Crítico (&lt;5)</span>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-status-low-stock">
+<span class="material-symbols-outlined text-xl">warning</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-status-low-stock">4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">productos</span>
+</div>
+<p class="font-body-sm text-body-sm text-status-out-of-stock mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span> Requiere reposición inmediata
+        </p>
+</div>
+</div>
+<!-- Card 4: Pedidos Hoy -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary-fixed/30 rounded-full blur-xl group-hover:scale-125 transition-transform duration-500"></div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Despachos Hoy</span>
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-charcoal-ink">18</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">guías pendientes</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-status-in-stock">check_circle</span> 6 enviadas en Sede Bogotá
+        </p>
+</div>
+</div>
+</section>
+<!-- Action Bar & Search Filter Layer -->
+<section class="bg-surface-container-lowest p-4 rounded-xl shadow-sm mb-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+<div class="flex items-center gap-3 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">filter_alt</span>
+<input class="w-full pl-9 pr-4 py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/20" id="inventory-filter" onkeyup="filterTable()" placeholder="Filtrar por nombre, categoría o SKU..." type="text"/>
+</div>
+<div class="hidden sm:flex items-center gap-1.5 bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-sm text-outline">tune</span>
+<select aria-label="Filtrar por Categoría" class="bg-transparent font-label-sm text-label-sm text-on-surface focus:outline-none cursor-pointer">
+<option value="all">Todas las Categorías</option>
+<option value="facial">Cuidado Facial</option>
+<option value="makeup">Maquillaje</option>
+<option value="hair">Cuidado Capilar</option>
+</select>
+</div>
+</div>
+<!-- Quick Buttons Group -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0">
+<button class="px-4 py-2.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface hover:bg-surface-dim transition-colors flex items-center gap-2 whitespace-nowrap" onclick="openAjusteModal('SKU-BE-001', 'Sérum Niacinamida 10%', 14)" type="button">
+<span class="material-symbols-outlined text-base text-primary">edit_note</span>
+<span>Ajuste Rápido</span>
+</button>
+<button class="px-4 py-2.5 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container hover:bg-primary transition-colors flex items-center gap-2 whitespace-nowrap shadow-sm" onclick="openTransferModal('SKU-BE-004', 'Labial Mate Terciopelo Nude', 'medellin', 'bogota')" type="button">
+<span class="material-symbols-outlined text-base">swap_horiz</span>
+<span>Registrar Traslado</span>
+</button>
+<button class="px-5 py-2.5 rounded-full font-label-md text-label-md bg-secondary text-on-secondary hover:bg-charcoal-ink transition-colors flex items-center gap-2 whitespace-nowrap shadow-sm" onclick="openNewSkuToast()" type="button">
+<span class="material-symbols-outlined text-base">add</span>
+<span>+ Nuevo Producto</span>
+</button>
+</div>
+</section>
+<!-- Inventory Data Table -->
+<section class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden mb-8">
+<div class="overflow-x-auto">
+<table class="w-full text-left" id="inventory-table">
+<thead>
+<tr class="bg-surface-clean text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-4 px-6">SKU / Identificador</th>
+<th class="py-4 px-6">Producto &amp; Fórmula</th>
+<th class="py-4 px-6">Categoría</th>
+<th class="py-4 px-6">Stock en Sede</th>
+<th class="py-4 px-6">Stock Global</th>
+<th class="py-4 px-6">Precio Venta</th>
+<th class="py-4 px-6">Estado Operativo</th>
+<th class="py-4 px-6 text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<!-- Row 1: Sérum Niacinamida -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-category="facial">
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-primary tracking-wide">SKU-BE-001</span>
+<span class="block font-label-micro text-label-micro text-outline">EAN-77092182</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-clean" data-alt="A minimalist frosted glass dropper bottle with gold metallic rim containing high purity niacinamide facial serum, shot on warm ivory cosmetic stone with soft natural morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiPJGwztXVOoDQncF1eyhZPB8j6TORU4zM6RJOScM2X31A857SlTy2yiXDveZ_obBvcDfoYkSs5BB-A0-oaoBA3M85mce07bglmNZ-_0kj5T3uBnA4bFovRTCPtvCYsHiXghMFTLt04WdX3oLymcUW_CntKuX3gNXlNylk-jVZQTpj7CikjfmrAhP69A2Wn83nDiidJsOp1nvxNnQoEltqaMPvkDi1S3jqBok6SB-hMoWF4XpZ0dyH"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-charcoal-ink leading-snug">Sérum Niacinamida 10%</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Envase de Vidrio 30ml con Gotero</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-micro text-label-micro text-on-surface-variant">Cuidado Facial</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-charcoal-ink" id="stock-cell-SKU-BE-001">14</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">unidades</span>
+</div>
+<span class="font-label-micro text-label-micro text-outline">Pasillo B · Estante 3</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 un.</span>
+<span class="block font-label-micro text-label-micro text-outline">3 sedes activas</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-headline-sm text-headline-sm text-charcoal-ink">$78.000</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-in-stock/10 text-status-in-stock font-label-micro text-label-micro font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-in-stock animate-pulse"></span>
+                Óptimo
+              </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container font-label-micro text-label-micro text-charcoal-ink hover:bg-surface-container-high transition-colors flex items-center gap-1" onclick="openAjusteModal('SKU-BE-001', 'Sérum Niacinamida 10%', 14)" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Ajustar (+/-)</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors" onclick="openTransferModal('SKU-BE-001', 'Sérum Niacinamida 10%', 'bogota', 'medellin')" title="Trasladar a otra sede" type="button">
+<span class="material-symbols-outlined text-lg">swap_horiz</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Crema Hidratante -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-category="facial">
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-primary tracking-wide">SKU-BE-002</span>
+<span class="block font-label-micro text-label-micro text-outline">EAN-77092183</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-clean" data-alt="An elegant cream jar with rose gold lid displaying luxury hyaluronic acid moisturizing cream, studio cosmetic photography on light beige reflective surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0XmbL7LVFMoKXXvjSuQ7lwAEtgQUsztBr9ykMN7t3HQSAF5zGPfKN1zqjR_wFiO8P-_e41I18raHJg494iSE1k6ntSKpeFYPcezy3R06lNB1nHN6lClWXoIVD6N5p9Shtis83dUoq8nQmw8PGdnjgqrbHi11T2YZpY6T_XcQNvEXw8hpAYxfxwNO76PKWtzoMT3X2CkpcJFuOiZa8S8kvS8rkq1FghxBT3Rf4JClmDbrRIhI8qDkr"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-charcoal-ink leading-snug">Crema Hidratante Ácido Hialurónico</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Tarro Acrílico 50g Sellado</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-micro text-label-micro text-on-surface-variant">Cuidado Facial</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-status-low-stock font-bold" id="stock-cell-SKU-BE-002">3</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">unidades</span>
+</div>
+<span class="font-label-micro text-label-micro text-status-low-stock">Mínimo sugerido: 10</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-on-surface-variant">19 un.</span>
+<span class="block font-label-micro text-label-micro text-outline">Medellín: 11 un.</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-headline-sm text-headline-sm text-charcoal-ink">$92.000</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-low-stock/15 text-status-low-stock font-label-micro text-label-micro font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-low-stock"></span>
+                Stock Bajo (&lt;5)
+              </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-3 py-1.5 rounded-lg bg-status-low-stock/10 text-status-low-stock hover:bg-status-low-stock/20 font-label-micro text-label-micro transition-colors flex items-center gap-1" onclick="openTransferModal('SKU-BE-002', 'Crema Hidratante Ácido Hialurónico', 'medellin', 'bogota')" type="button">
+<span class="material-symbols-outlined text-sm">move_down</span>
+<span>Reabastecer</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors" onclick="openAjusteModal('SKU-BE-002', 'Crema Hidratante Ácido Hialurónico', 3)" type="button">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Base Fluida SPF 30 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group" data-category="makeup">
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-primary tracking-wide">SKU-BE-003</span>
+<span class="block font-label-micro text-label-micro text-outline">EAN-77092184</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-clean" data-alt="A premium glass foundation bottle with pump dispenser, creamy warm undertone foundation texture visible inside, clean high-fashion editorial backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJQr9VM1h_cj9P-y3hVswBao2WF_EVPjbj8D4tkMIg3zNG0cvmSyyOajdAwrkKJtSar4eYuvMNNFcLFso4k18i3ktzNBUdnBL0VD4PeB3u6BmlOPGs6kP_nm777QsyMA94n8cvsssVOaEhKtS3Qf-_LJ7y6XT1V-bf4MhK29mXnjZg7OQ3_h0Bgv-X9Gfsk5miyGD1_M9P0DAfuUgeIVan4S6BG9d970qlykfWACzxwurXuNVx_Igs"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-charcoal-ink leading-snug">Base Fluida SPF 30</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Tono Beige Neutro 02 · 40ml</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-micro text-label-micro text-on-surface-variant">Maquillaje</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-charcoal-ink" id="stock-cell-SKU-BE-003">28</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">unidades</span>
+</div>
+<span class="font-label-micro text-label-micro text-outline">Pasillo D · Gaveta 12</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-on-surface-variant">64 un.</span>
+<span class="block font-label-micro text-label-micro text-outline">Lote Vence: Dic 2026</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-headline-sm text-headline-sm text-charcoal-ink">$115.000</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-in-stock/10 text-status-in-stock font-label-micro text-label-micro font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-in-stock"></span>
+                Óptimo
+              </span>
+</td>
+<td class="py-4 px-6 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container font-label-micro text-label-micro text-charcoal-ink hover:bg-surface-container-high transition-colors flex items-center gap-1" onclick="openAjusteModal('SKU-BE-003', 'Base Fluida SPF 30', 28)" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Ajustar (+/-)</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors" onclick="openTransferModal('SKU-BE-003', 'Base Fluida SPF 30', 'bogota', 'cali')" title="Trasladar a Sede Cali" type="button">
+<span class="material-symbols-outlined text-lg">swap_horiz</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Labial Mate Terciopelo Nude -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group bg-error-container/10" data-category="makeup">
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-primary tracking-wide">SKU-BE-004</span>
+<span class="block font-label-micro text-label-micro text-outline">EAN-77092185</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover bg-surface-clean" data-alt="A luxury matte velvet nude lipstick in soft rose metallic casing with embossed monogram, warm lighting, elegant luxury cosmetics photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPIy5PyhcSMFLiPAB7snhpxswcRML5xrxZJ4jDD0DOtWeNRY5ZbMSWAOy8mUtNpvwdcv7lFXj2pguGVeqpAhBR-BG9A2HOiJAqIqKFI-CUYVJia2YnjkcOkuucSTVpdB3-WgtFmCvIb23yrFL6SXAKNGEDv2V1Ecwv8lAV2oboX3qPhdu9pkcbivEHZ7W1lS6dK8-ZL2-4ORNBOSQgk-j_9hxgz5xONIXUDyADEka0BvR6Eov4DRac"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-charcoal-ink leading-snug">Labial Mate Terciopelo Nude</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Tono 05 Rosewood Velour</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="px-2.5 py-1 rounded-full bg-surface-container font-label-micro text-label-micro text-on-surface-variant">Maquillaje</span>
+</td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-status-out-of-stock font-bold" id="stock-cell-SKU-BE-004">0</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">unidades</span>
+</div>
+<span class="font-label-micro text-label-micro text-status-out-of-stock font-bold">12 un. en Sede Medellín</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-label-sm text-label-sm text-on-surface-variant">12 un.</span>
+<span class="block font-label-micro text-label-micro text-outline">Disponibles en Medellín</span>
+</td>
+<td class="py-4 px-6">
+<span class="font-headline-sm text-headline-sm text-charcoal-ink">$45.000</span>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-out-of-stock/10 text-status-out-of-stock font-label-micro text-label-micro font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-status-out-of-stock"></span>
+                Agotado en Sede
+              </span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="px-3.5 py-1.5 rounded-full bg-secondary text-on-secondary hover:bg-charcoal-ink font-label-micro text-label-micro transition-colors flex items-center gap-1 ml-auto shadow-sm" onclick="openTransferModal('SKU-BE-004', 'Labial Mate Terciopelo Nude', 'medellin', 'bogota')" type="button">
+<span class="material-symbols-outlined text-sm">local_shipping</span>
+<span>Solicitar Traslado</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination & Audit Meta -->
+<div class="bg-surface-clean px-6 py-3.5 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="font-label-micro text-label-micro text-outline uppercase tracking-wider">Última conciliación PostgreSQL:</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant font-bold">Hace 2 minutos (Transacción #TX-9041)</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mostrando 4 de 142 registros</span>
+<div class="flex items-center gap-1">
+<button aria-label="Página anterior" class="p-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high disabled:opacity-40" disabled="" type="button">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button aria-label="Página siguiente" class="p-1 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high" type="button">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Live Distribution Map / Node Status & Order Queue -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Logistics Node Status -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-4">
+<div>
+<span class="font-label-micro text-label-micro text-primary uppercase tracking-wider">Topología Logística</span>
+<h2 class="font-title-md text-title-md text-charcoal-ink">Interconexión entre Bodegas de Despacho</h2>
+</div>
+<span class="font-label-micro text-label-micro px-2.5 py-1 rounded-full bg-status-in-stock/10 text-status-in-stock font-bold">Rutas Activas</span>
+</div>
+<!-- Network Graphic Representation -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-2">
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-charcoal-ink font-bold">Bogotá (Centro)</span>
+<span class="w-2.5 h-2.5 rounded-full bg-status-in-stock"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant my-2">Hub principal de distribución nacional y e-commerce.</p>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-micro text-label-micro text-outline">Capacidad: 84%</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">2.410 un.</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-charcoal-ink font-bold">Medellín (Poblado)</span>
+<span class="w-2.5 h-2.5 rounded-full bg-status-in-stock"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant my-2">Punto de reabastecimiento regional Antioquia y Eje Cafetero.</p>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-micro text-label-micro text-outline">Capacidad: 62%</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">980 un.</span>
+</div>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-charcoal-ink font-bold">Cali (Granada)</span>
+<span class="w-2.5 h-2.5 rounded-full bg-status-low-stock"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant my-2">Bodega boutique y despacho express suroccidente.</p>
+<div class="flex items-center justify-between pt-2">
+<span class="font-label-micro text-label-micro text-outline">Capacidad: 45%</span>
+<span class="font-label-sm text-label-sm text-status-low-stock font-bold">450 un.</span>
+</div>
+</div>
+</div>
+<!-- Quick Transfer Route visual -->
+<div class="bg-surface-clean p-4 rounded-xl mt-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">local_shipping</span>
+<div>
+<p class="font-label-sm text-label-sm text-charcoal-ink">Traslado #TR-4089 en Tránsito</p>
+<p class="font-label-micro text-label-micro text-on-surface-variant">Medellín → Bogotá (24 un. Cuidado Facial) · ETA: Hoy 4:30 PM</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container-high font-label-micro text-label-micro text-primary font-bold">En Carretera</span>
+</div>
+</div>
+<!-- Dispatch Feed / RF-04 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-micro text-label-micro text-primary uppercase tracking-wider">Flujo RF-04</span>
+<span class="font-label-micro text-label-micro text-status-in-stock">En Vivo</span>
+</div>
+<h2 class="font-title-md text-title-md text-charcoal-ink mb-1">Pedidos por Despachar</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Cola prioritaria según corte horario (Sede Bogotá).</p>
+<div class="space-y-3">
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-charcoal-ink">Orden #ORD-8821</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Cliente: Mariana Restrepo (2 items)</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label-micro text-label-micro font-bold">Picking</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-charcoal-ink">Orden #ORD-8822</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Cliente: Carlos E. Villa (1 item)</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-micro text-label-micro font-bold">Empaque</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-charcoal-ink">Orden #ORD-8823</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">Cliente: Salón Aura Belleza (8 items)</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-micro text-label-micro font-bold">Guía Lista</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-2.5 rounded-full font-label-md text-label-md bg-surface-container-high text-charcoal-ink hover:bg-surface-dim transition-colors flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">print</span>
+<span>Imprimir Lote de Guías (18)</span>
+</button>
+</div>
+</section>
+<!-- Modal 1: Simulación de Traslado entre Sedes (RF-03 / PostgreSQL) -->
+<div class="fixed inset-0 z-50 bg-charcoal-ink/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-transfer">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-2xl shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-base">swap_horiz</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-charcoal-ink">Registrar Traslado de Stock</h3>
+<span class="font-label-micro text-label-micro text-outline">Transacción ACID en PostgreSQL</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-charcoal-ink p-1 rounded-lg" onclick="closeTransferModal()" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-4" id="transfer-form" onsubmit="executeTransfer(event)">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Producto / SKU Seleccionado</label>
+<div class="p-3 bg-surface-container-low rounded-lg flex items-center justify-between">
+<div>
+<p class="font-label-md text-label-md text-charcoal-ink" id="transfer-modal-product-name">Labial Mate Terciopelo Nude</p>
+<p class="font-label-micro text-label-micro text-primary" id="transfer-modal-sku">SKU-BE-004</p>
+</div>
+<span class="font-label-micro text-label-micro px-2 py-0.5 rounded bg-surface-container-lowest text-on-surface-variant">Categoría Cosmética</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Sede de Origen</label>
+<select aria-label="Sede de Origen" class="w-full bg-surface-container-low p-2.5 rounded-lg font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:outline-none" id="transfer-origin">
+<option selected="" value="medellin">Sede Medellín (Disp: 12 un.)</option>
+<option value="bogota">Sede Bogotá (Disp: 14 un.)</option>
+<option value="cali">Sede Cali (Disp: 6 un.)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Sede de Destino</label>
+<select aria-label="Sede de Destino" class="w-full bg-surface-container-low p-2.5 rounded-lg font-body-sm text-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:outline-none" id="transfer-dest">
+<option selected="" value="bogota">Sede Bogotá (Actual: 0 un.)</option>
+<option value="medellin">Sede Medellín</option>
+<option value="cali">Sede Cali</option>
+</select>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant" for="transfer-qty">Cantidad de Unidades a Trasladar</label>
+<span class="font-label-micro text-label-micro text-secondary">Máximo disponible: 12</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-charcoal-ink hover:bg-surface-container-high" onclick="adjustQtyInput('transfer-qty', -1)" type="button">-</button>
+<input class="flex-1 py-2 text-center bg-surface-container-low rounded-lg font-title-md text-title-md text-charcoal-ink focus:outline-none" id="transfer-qty" max="12" min="1" type="number" value="6"/>
+<button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-charcoal-ink hover:bg-surface-container-high" onclick="adjustQtyInput('transfer-qty', 1)" type="button">+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="transfer-notes">Motivo / Orden de Reabastecimiento</label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none" id="transfer-notes" placeholder="Ej: Demanda urgente pedidos e-commerce Bogotá" type="text" value="Reabastecimiento stock crítico en Bogotá"/>
+</div>
+<div class="p-3 bg-surface-clean rounded-xl text-xs flex items-start gap-2.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-tertiary mt-0.5">verified_user</span>
+<p class="leading-relaxed">Al confirmar, se descontarán las unidades del inventario de origen y se marcarán en estado <strong>'En Tránsito'</strong> con actualización síncrona en PostgreSQL.</p>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3">
+<button class="px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface hover:bg-surface-dim transition-colors" onclick="closeTransferModal()" type="button">
+            Cancelar
+          </button>
+<button class="px-6 py-2.5 rounded-full font-label-md text-label-md bg-secondary text-on-secondary hover:bg-charcoal-ink transition-colors shadow-sm flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-base">check</span>
+<span>Confirmar Traslado</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Modal 2: Ajuste Rápido de Stock (+ / -) -->
+<div class="fixed inset-0 z-50 bg-charcoal-ink/40 backdrop-blur-sm hidden items-center justify-center p-4" id="modal-ajuste">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-2xl shadow-2xl p-6 relative animate-in fade-in zoom-in-95 duration-200">
+<div class="flex items-center justify-between pb-4 mb-4 border-b border-surface-container">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">tune</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-charcoal-ink">Ajuste Manual de Inventario</h3>
+<span class="font-label-micro text-label-micro text-outline">Control de mermas y auditoría</span>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-charcoal-ink p-1 rounded-lg" onclick="closeAjusteModal()" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-4" id="ajuste-form" onsubmit="executeAjuste(event)">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Producto</label>
+<p class="font-title-md text-title-md text-charcoal-ink" id="ajuste-modal-product-name">Sérum Niacinamida 10%</p>
+<span class="font-label-micro text-label-micro text-primary" id="ajuste-modal-sku">SKU-BE-001</span>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="ajuste-tipo">Tipo de Ajuste</label>
+<select class="w-full bg-surface-container-low p-2.5 rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none" id="ajuste-tipo">
+<option value="ingreso">Entrada (+): Recepción de Proveedor / Fabricación</option>
+<option value="merma">Salida (-): Merma / Deterioro / Producto Vencido</option>
+<option value="conteo">Ajuste Directo: Corrección por Auditoría Física</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="ajuste-qty">Cantidad del Movimiento</label>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-charcoal-ink" onclick="adjustQtyInput('ajuste-qty', -1)" type="button">-</button>
+<input class="flex-1 py-2 text-center bg-surface-container-low rounded-lg font-title-md text-title-md text-charcoal-ink focus:outline-none" id="ajuste-qty" min="1" type="number" value="5"/>
+<button class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-charcoal-ink" onclick="adjustQtyInput('ajuste-qty', 1)" type="button">+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="ajuste-motivo">Justificación del Registro</label>
+<input class="w-full px-3 py-2 bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface focus:outline-none" id="ajuste-motivo" placeholder="Ej: Conteo físico mensual o lote defectuoso" required="" type="text" value="Revisión de lote por auditor de sede"/>
+</div>
+<div class="flex items-center justify-end gap-3 pt-3">
+<button class="px-5 py-2.5 rounded-full font-label-md text-label-md bg-surface-container-high text-on-surface hover:bg-surface-dim transition-colors" onclick="closeAjusteModal()" type="button">
+            Cancelar
+          </button>
+<button class="px-6 py-2.5 rounded-full font-label-md text-label-md bg-secondary text-on-secondary hover:bg-charcoal-ink transition-colors shadow-sm" type="submit">
+            Guardar Ajuste
+          </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Simulated Toast Feedback Notification -->
+<div class="fixed bottom-6 right-8 z-50 bg-charcoal-ink text-surface-container-lowest px-5 py-3.5 rounded-xl shadow-2xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300" id="status-toast">
+<span class="material-symbols-outlined text-tertiary-fixed text-xl">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold" id="toast-title">Operación Exitosa</span>
+<span class="font-body-sm text-body-sm text-surface-dim" id="toast-msg">Inventario actualizado en base de datos.</span>
+</div>
+</div>
+</div>
+<script>
+  let activeSkuToTransfer = '';
+  let activeSkuToAdjust = '';
+
+  function selectSede(btn, sedeKey) {
+    document.querySelectorAll('.sede-tab').forEach(el => {
+      el.classList.remove('bg-secondary', 'text-on-secondary', 'shadow-sm');
+      el.classList.add('text-on-surface-variant');
+    });
+    btn.classList.add('bg-secondary', 'text-on-secondary', 'shadow-sm');
+    btn.classList.remove('text-on-surface-variant');
+
+    const toast = document.getElementById('status-toast');
+    document.getElementById('toast-title').textContent = 'Sede Activa Actualizada';
+    document.getElementById('toast-msg').textContent = 'Visualizando existencias para ' + btn.textContent.trim();
+    showToast();
+  }
+
+  function filterTable() {
+    const input = document.getElementById('inventory-filter').value.toLowerCase();
+    const rows = document.querySelectorAll('#inventory-table tbody tr');
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(input) ? '' : 'none';
+    });
+  }
+
+  function adjustQtyInput(inputId, delta) {
+    const el = document.getElementById(inputId);
+    let val = parseInt(el.value || 0, 10) + delta;
+    if (val < 1) val = 1;
+    el.value = val;
+  }
+
+  function openTransferModal(sku, productName, origin, dest) {
+    activeSkuToTransfer = sku;
+    document.getElementById('transfer-modal-sku').textContent = sku;
+    document.getElementById('transfer-modal-product-name').textContent = productName;
+    document.getElementById('transfer-origin').value = origin;
+    document.getElementById('transfer-dest').value = dest;
+    const modal = document.getElementById('modal-transfer');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeTransferModal() {
+    const modal = document.getElementById('modal-transfer');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function executeTransfer(e) {
+    e.preventDefault();
+    const qty = parseInt(document.getElementById('transfer-qty').value, 10);
+    const sku = activeSkuToTransfer;
+    const cell = document.getElementById('stock-cell-' + sku);
+
+    if (cell) {
+      const current = parseInt(cell.textContent.trim(), 10) || 0;
+      const updated = current + qty;
+      cell.textContent = updated;
+      
+      // Update styling if was 0
+      const row = cell.closest('tr');
+      if (row) {
+        row.classList.remove('bg-error-container/10');
+        const badgeSpan = row.querySelector('td:nth-child(7) span');
+        if (badgeSpan && updated > 0) {
+          badgeSpan.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-status-in-stock/10 text-status-in-stock font-label-micro text-label-micro font-bold';
+          badgeSpan.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-status-in-stock"></span> Óptimo (' + updated + ' un.)';
+        }
+      }
+    }
+
+    closeTransferModal();
+    document.getElementById('toast-title').textContent = 'Traslado Registrado en PostgreSQL';
+    document.getElementById('toast-msg').textContent = 'Se transfirieron ' + qty + ' unidades de ' + sku + ' exitosamente.';
+    showToast();
+  }
+
+  function openAjusteModal(sku, productName, currentStock) {
+    activeSkuToAdjust = sku;
+    document.getElementById('ajuste-modal-sku').textContent = sku;
+    document.getElementById('ajuste-modal-product-name').textContent = productName;
+    document.getElementById('ajuste-qty').value = '5';
+    const modal = document.getElementById('modal-ajuste');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+  }
+
+  function closeAjusteModal() {
+    const modal = document.getElementById('modal-ajuste');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  function executeAjuste(e) {
+    e.preventDefault();
+    const type = document.getElementById('ajuste-tipo').value;
+    const qty = parseInt(document.getElementById('ajuste-qty').value, 10);
+    const cell = document.getElementById('stock-cell-' + activeSkuToAdjust);
+
+    if (cell) {
+      let current = parseInt(cell.textContent.trim(), 10) || 0;
+      if (type === 'ingreso') current += qty;
+      else if (type === 'merma') current = Math.max(0, current - qty);
+      else current = qty;
+      cell.textContent = current;
+    }
+
+    closeAjusteModal();
+    document.getElementById('toast-title').textContent = 'Ajuste de Stock Aplicado';
+    document.getElementById('toast-msg').textContent = 'Auditoría registrada para ' + activeSkuToAdjust + ' (Tipo: ' + type + ').';
+    showToast();
+  }
+
+  function openNewSkuToast() {
+    document.getElementById('toast-title').textContent = 'Módulo Nuevo SKU';
+    document.getElementById('toast-msg').textContent = 'Redirigiendo al formulario de catalogación de productos cosméticos...';
+    showToast();
+  }
+
+  function showToast() {
+    const toast = document.getElementById('status-toast');
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.add('translate-y-24', 'opacity-0');
+      toast.classList.remove('translate-y-0', 'opacity-100');
+    }, 3500);
+  }
+</script></main></div></body></html>

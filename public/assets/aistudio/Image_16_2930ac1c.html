@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "nude-soft": "#E8D8CF", "secondary-container": "#fe8d93", "on-tertiary-fixed-variant": "#16512f", "surface-dim": "#e4d7d7", "on-background": "#201a1b", "error-container": "#ffdad6", "secondary-fixed-dim": "#ffb3b5", "surface-bright": "#fff8f7", "on-tertiary-container": "#f6fff4", "surface-container-lowest": "#ffffff", "on-secondary-container": "#77242d", "surface-clean": "#F4F3F0", "tertiary-fixed": "#b4f1c3", "surface-variant": "#eddfe0", "primary": "#8a4853", "inverse-on-surface": "#fbeeee", "background": "#fff8f7", "inverse-primary": "#ffb2bc", "on-primary": "#ffffff", "tertiary-fixed-dim": "#98d4a8", "on-tertiary-fixed": "#00210e", "surface-ivory": "#FAF8F5", "surface-tint": "#8c4b55", "on-primary-fixed-variant": "#70343e", "primary-fixed": "#ffd9dd", "tertiary-container": "#48805a", "on-surface": "#201a1b", "inverse-surface": "#362f2f", "outline": "#857374", "on-surface-variant": "#524345", "on-secondary": "#ffffff", "tertiary": "#2e6743", "surface-container-low": "#fef0f1", "error": "#ba1a1a", "on-primary-container": "#fffbff", "outline-variant": "#d7c1c3", "surface-container-high": "#f2e5e5", "status-out-of-stock": "#9E2A2B", "secondary": "#9c4048", "primary-container": "#a6606b", "on-error-container": "#93000a", "on-secondary-fixed-variant": "#7e2932", "on-tertiary": "#ffffff", "on-secondary-fixed": "#40000b", "surface-container": "#f8ebeb", "on-error": "#ffffff", "on-primary-fixed": "#3a0915", "surface-container-highest": "#eddfe0", "status-in-stock": "#2E6B4F", "surface": "#fff8f7", "rose-dust": "#D8A49B", "primary-fixed-dim": "#ffb2bc", "secondary-fixed": "#ffdada", "charcoal-ink": "#1E1A1D", "status-low-stock": "#B46522" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-xl": "2.5rem", "gutter": "1.5rem", "margin-desktop": "3rem", "space-2xl": "4rem", "space-sm": "0.5rem", "gutter-lg": "2rem", "space-xs": "0.25rem", "gutter-sm": "1rem", "margin": "2rem", "space-lg": "1.5rem", "margin-mobile": "1rem" }, "fontFamily": { "headline-lg-mobile": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-micro": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg-mobile": ["1.875rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-lg": ["1.125rem", { "lineHeight": "1.75rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-lg": ["2.5rem", { "lineHeight": "3rem", "letterSpacing": "-0.02em", "fontWeight": "600" }], "label-micro": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-md": ["0.875rem", { "lineHeight": "1.25rem", "letterSpacing": "0.03em", "fontWeight": "600" }], "title-md": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "600" }], "headline-md": ["1.75rem", { "lineHeight": "2.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["0.8125rem", { "lineHeight": "1.25rem", "letterSpacing": "0.015em", "fontWeight": "400" }], "body-md": ["0.9375rem", { "lineHeight": "1.5rem", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-sm": ["1.25rem", { "lineHeight": "1.75rem", "letterSpacing": "0em", "fontWeight": "600" }], "label-sm": ["0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.05em", "fontWeight": "600" }], "display-lg": ["3.5rem", { "lineHeight": "4rem", "letterSpacing": "-0.03em", "fontWeight": "700" }] } } } };</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;min-height:100vh;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col antialiased selection:bg-rose-dust/30"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(106,26,36,0.04)]"><div class="h-20 px-gutter-sm flex flex-col justify-center gap-space-xs"><div class="flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0 flex-1"><img alt="Belleza en un Clic Logo" class="h-8 w-auto object-contain shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3xL_VEYW5zqho3PJSrxqMDq-YbwX5YmVqDsXMIZOdOBbHhG2oIzDeC1V_5oUfMKSzv3nponXuNSRQlXSwMeMjzOR48MCbleNHW-DZx9Oc6m4aLqXO0tmtffpa8bN0NDaCjw_AwDAnA2FLBI4c-oVRX2u27EXnmTBSRqN4cmahs9Ar6-mrNWlstPp5aoEbmyG_3jhaDlB8EqG2SKF__5s3CoxADxMY0VORX46MH_lnQCF4Uy48dJAl"/><div class="flex flex-col min-w-0"><span class="font-label-micro text-label-micro text-primary uppercase tracking-wider truncate">Belleza en un Clic</span><span class="font-title-md text-title-md text-charcoal-ink font-semibold truncate">Mis Pedidos</span></div></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Buscar productos o pedidos" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><a aria-label="Ver carrito de compras" class="w-11 h-11 relative rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" data-path="carrito" href="#"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute top-2 right-2 min-w-[16px] h-4 px-1 rounded-full bg-secondary text-on-secondary font-label-micro text-label-micro flex items-center justify-center leading-none">3</span></a><div class="pl-space-xs flex items-center"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-nude-soft" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv189ujFL6VqGa7lT-eatzot47PRpiaxxVQm0T-ksIGgVgy42oxxJmNmLz77jECSfhOuJj98c5GeQfEOSoL0P7KkRnQB_BUmLXsyMck2Wxs1Wqd1IwNN7y1QuZTpHaA-b5qH6tvJSHaOQ64IhXTApnPfojJbRN_JUwGeBEPJAoy-t2aNhg9fosMBxET9pCQoEFQgjsiUd43uPvuIQJIGygrQrUZp6y0wzD7ObnMhfmEzaS12G5-hBe"/></div></div></div><div class="flex items-center justify-between"><button class="inline-flex items-center gap-space-xs px-2.5 py-1 rounded-full bg-surface-container-low hover:bg-surface-container transition-colors max-w-full" type="button"><span class="w-1.5 h-1.5 rounded-full bg-status-in-stock shrink-0"></span><span class="font-label-micro text-label-micro text-on-surface-variant truncate">Sede:</span><span class="font-label-micro text-label-micro text-charcoal-ink font-bold truncate">Bogotá Calle 85</span><span class="material-symbols-outlined text-[14px] text-primary shrink-0">expand_more</span></button><span class="font-label-micro text-label-micro text-tertiary hidden sm:inline-flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">local_shipping</span> Envíos express activos</span></div></div></header><main class="flex flex-col relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Sub-header Glow Greeting & VIP Loyalty Summary -->
+<section class="px-gutter-sm pt-space-xs pb-space-md">
+<div class="bg-surface-container-low rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<!-- Ambient Glow Orb -->
+<div class="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-rose-dust/20 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between gap-space-sm relative z-10">
+<div class="min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-micro text-label-micro tracking-wider uppercase">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+              Glow VIP
+            </span>
+<span class="font-label-micro text-label-micro text-on-surface-variant">• Nivel Oro</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-charcoal-ink font-bold truncate">¡Hola, Sofía Gómez!</h2>
+</div>
+<div class="text-right shrink-0 bg-surface-container-lowest px-3 py-2 rounded-lg shadow-sm">
+<span class="font-label-micro text-label-micro text-on-surface-variant block uppercase tracking-wide">Puntos Glow</span>
+<span class="font-title-md text-title-md text-primary font-bold block leading-tight">2.450 <span class="font-label-sm text-label-sm font-normal">pts</span></span>
+<span class="font-label-micro text-label-micro text-tertiary font-semibold block">$24.500 COP</span>
+</div>
+</div>
+<!-- Quick Metrics Bento -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-md relative z-10 pt-space-xs">
+<div class="bg-surface-container-lowest p-2.5 rounded-lg flex flex-col justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>
+<span class="font-label-micro text-label-micro">Pedidos</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-charcoal-ink font-bold mt-1">4</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant leading-none">Completados</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-lg flex flex-col justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">savings</span>
+<span class="font-label-micro text-label-micro">Ahorro</span>
+</div>
+<span class="font-title-md text-title-md text-tertiary font-bold mt-1">$55k</span>
+<span class="font-label-micro text-label-micro text-on-surface-variant leading-none">En cupones</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-lg flex flex-col justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-status-in-stock">verified_user</span>
+<span class="font-label-micro text-label-micro">DIAN</span>
+</div>
+<span class="font-title-md text-title-md text-charcoal-ink font-bold mt-1">100%</span>
+<span class="font-label-micro text-label-micro text-status-in-stock font-semibold leading-none">CUFE Oficial</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Horizontal Segment Tabs -->
+<section class="px-gutter-sm pb-space-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-1">
+<a class="px-3.5 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap flex items-center gap-1.5 transition-all hover:bg-surface-container shrink-0" href="#">
+<span class="material-symbols-outlined text-[16px]">local_shipping</span>
+        En Curso
+        <span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest font-label-micro text-label-micro text-on-surface-variant">1</span>
+</a>
+<a aria-current="page" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-sm text-label-sm whitespace-nowrap shadow-sm flex items-center gap-1.5 shrink-0" href="#">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+        Historial &amp; Facturas DIAN
+        <span class="px-1.5 py-0.2 rounded-full bg-on-primary/20 text-on-primary font-label-micro text-label-micro font-bold">4</span>
+</a>
+<a class="px-3.5 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap flex items-center gap-1.5 transition-all hover:bg-surface-container shrink-0" href="#">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+        Direcciones
+      </a>
+<a class="px-3.5 py-2 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm whitespace-nowrap flex items-center gap-1.5 transition-all hover:bg-surface-container shrink-0" href="#">
+<span class="material-symbols-outlined text-[16px]">favorite</span>
+        Deseos
+      </a>
+</div>
+</section>
+<!-- Search & Smart Filter Toolbar -->
+<section class="px-gutter-sm pb-space-md">
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-sm">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full bg-surface-container-low text-on-surface rounded-lg pl-9 pr-8 py-2 font-body-sm text-body-sm focus:outline-none focus:bg-surface-container placeholder:text-outline" placeholder="Buscar por #BEC, cosmético, SKU o CUFE..." type="text"/>
+<button aria-label="Limpiar búsqueda" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-outline hover:text-charcoal-ink flex items-center" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar">
+<button class="px-3 py-1 rounded-full bg-charcoal-ink text-surface-container-lowest font-label-sm text-label-sm shrink-0 flex items-center gap-1">
+<span>2026 - Todos</span>
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm shrink-0 hover:bg-surface-container">
+          Últimos 3 meses
+        </button>
+<button class="px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm shrink-0 hover:bg-surface-container">
+          2025 (1)
+        </button>
+<button class="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm shrink-0 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          DIAN Listas
+        </button>
+</div>
+</div>
+</section>
+<!-- Orders & Invoices List -->
+<section class="px-gutter-sm flex flex-col gap-space-md pb-space-md">
+<!-- Order 1: Recent February 2026 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<!-- Card Header -->
+<div class="p-space-md bg-surface-container-low/50 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-charcoal-ink font-bold tracking-tight">#BEC-2026-7712</span>
+<span class="px-2 py-0.5 rounded-full bg-status-in-stock/15 text-status-in-stock font-label-micro text-label-micro font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-in-stock"></span>
+                ENTREGADO
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">12 de Febrero 2026 • 03:45 PM</p>
+</div>
+<div class="text-right">
+<span class="font-label-micro text-label-micro text-on-surface-variant block uppercase">Total Pagado</span>
+<span class="font-title-md text-title-md text-charcoal-ink font-bold">$184.000 COP</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">storefront</span>
+            Sede: <strong class="text-charcoal-ink">Bogotá Calle 85</strong>
+</span>
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+            Visa •••• 4291
+          </span>
+</div>
+</div>
+<!-- Item Previews -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<!-- Item A -->
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-clean shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Delicate glass pump bottle of peptides and caffeine eye contour serum on a clean ivory satin surface with subtle warm rose gold reflections, professional cosmetic product photography, soft clinical luxury lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbUwIBwHvuUebra5h8DuVc4i0Tvr7AtQVBQA5CCtaCZbUGEyWRZj7knoosRj6dzl9DZB1smpQctqbbSBdYPHTNt9Bv-1-61bUOT5_CNmEpmplekqYJhlJ8gTHiG2tcpBzS5j4CCllq8yqY24269_adLu_6agBwKIN-I0bno84vT3Z4ALIsrVuZHbIlyMdGWGmKpNnGmTkS4Z6c_X3d78z1QZ6dbYqEUfjSr71eoxB4_iZoJI8jhVzp"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-charcoal-ink font-semibold truncate">Contorno de Ojos Péptidos &amp; Cafeína</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 unidad • 15ml frasco dosificador</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">$92.000 COP</span>
+</div>
+</div>
+<!-- Item B -->
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-clean shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Frosted glass bottle with rose gold cap containing SPF 30 satin liquid foundation in shade Nude Claro resting on a warm nude textured stone, soft natural morning studio light, high-end editorial cosmetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-vfZeX32NWSRCys0VNbhqxGiS8DXZHVGlZYj6QkQr5HLlzqCEZq9ii1NCaiYz_1u_ysnOjfZhwQ8BYvFLRPaiFZVdDRREMPyZnaI9hbhyLX-FT47UyaVOmu_DIwJKqFKS7pZUMMKxbMHslDz7RV3WO042GeyNS2LRMAbiByq6keRXMpSf5zo6yCop7OtMucODySiM1ks8pQo6o5LIXmM41iYGDK3hi81OeiM60aRCZRDFq4w9laib"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-charcoal-ink font-semibold truncate">Base Fluida Satinado SPF 30</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 unidad • Tono 01 Nude Claro (30ml)</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">$92.000 COP</span>
+</div>
+</div>
+</div>
+<!-- DIAN Electronic Invoice Pill Bar -->
+<div class="mx-space-md p-space-sm rounded-lg bg-surface-container flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+<span class="font-label-sm text-label-sm text-charcoal-ink font-semibold">Factura Electrónica FEL-2026-00892</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-status-in-stock/15 text-status-in-stock font-label-micro text-label-micro font-bold">Validada DIAN</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<p class="font-label-micro text-label-micro truncate max-w-[210px] font-mono">CUFE: 7a82b9e403d19f...c289</p>
+<span class="font-label-micro text-label-micro text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">verified</span> XML Emitido
+          </span>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-space-md pt-space-sm flex flex-col gap-space-xs">
+<div class="grid grid-cols-2 gap-space-xs">
+<!-- Download DIAN Invoices -->
+<button class="px-3 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-charcoal-ink font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[17px] text-primary">download</span>
+            Descargar DIAN
+          </button>
+<!-- Quick Re-order -->
+<button class="px-3 py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[17px]">repeat</span>
+            Volver a Comprar
+          </button>
+</div>
+<!-- Star rating touchpoint -->
+<div class="flex items-center justify-between px-2 pt-2 text-on-surface-variant">
+<span class="font-label-micro text-label-micro">¿Qué tal tu experiencia?</span>
+<div class="flex items-center gap-1 text-primary">
+<button aria-label="1 estrella" class="p-0.5 focus:scale-125 transition-transform" type="button"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button aria-label="2 estrellas" class="p-0.5 focus:scale-125 transition-transform" type="button"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button aria-label="3 estrellas" class="p-0.5 focus:scale-125 transition-transform" type="button"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button aria-label="4 estrellas" class="p-0.5 focus:scale-125 transition-transform" type="button"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<button aria-label="5 estrellas" class="p-0.5 focus:scale-125 transition-transform" type="button"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span></button>
+<span class="font-label-micro text-label-micro font-bold ml-1 text-charcoal-ink">5.0</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Order 2: January 2026 -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<div class="p-space-md bg-surface-container-low/50 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-charcoal-ink font-bold tracking-tight">#BEC-2026-6540</span>
+<span class="px-2 py-0.5 rounded-full bg-status-in-stock/15 text-status-in-stock font-label-micro text-label-micro font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-status-in-stock"></span>
+                ENTREGADO
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">18 de Enero 2026 • 11:20 AM</p>
+</div>
+<div class="text-right">
+<span class="font-label-micro text-label-micro text-on-surface-variant block uppercase">Total Pagado</span>
+<span class="font-title-md text-title-md text-charcoal-ink font-bold">$221.000 COP</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary">storefront</span>
+            Sede: <strong class="text-charcoal-ink">Bogotá Calle 85</strong>
+</span>
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">account_balance</span>
+            PSE Bancolombia
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-clean shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Two sleek minimalist white sunscreen tubes with golden foil lettering SPF 50+ matte finish placed on light travertine stone with warm soft daylight, luxury dermatological skincare aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2EO76SwZXZzTQtWUASC9cR0pn8hn_4VNddQmcMikWQ86-BbyBZbz4Js9aaHfIRNoYZPWjpm7e6J67IDIzzcwl4h8I4D2eIGXvcSPYx4yeTNI1H4Q38kApnEYKk7c5wXWbGxPGtEtkUTMehhU0dTfBCdSdYu4lVoqPfknNMkftxrLoMPfi_jxgjp5OiHTVybqLxH6MU3YIbFcwKrEPGzLgsTjR6VAXZf6LRdg8qEqWArsF5b-XBJPH"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-charcoal-ink font-semibold truncate">Protector Solar Toque Seco Invisible SPF 50+</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 unidades • Pack Dúo Cuidado Facial</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">$160.000 COP</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-clean shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Matte velvet lipstick in deep rosewood shade open with gold trim standing on a soft pink silk fabric background, luminous subtle highlights, luxury makeup product studio still." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSTjmryOjV4xW_KM29Dqb3YqKg23TH3oivC4gwUxc32s81LqbQ8zVh7c0pN3-wjIeXRSZ7oarMA0HcI69k6w265eQnc06KmEo5Wi-LrhdOy_AL2-gAtRm_CiwB71rTIqBxkL8zZ4jllF_AElL7oXI_8gMBHdbN27WMQmO2t9tQspSiMHJ5JMOTsj936AsTRjhcA0om6w8jrfYqnRn5qUilSDb0EjPH2XXO-F0snJdcyPa70Yx7HmXf"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-charcoal-ink font-semibold truncate">Labial Mate Terciopelo - Tono Rosewood</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">1 unidad • Edición Limitada Confort</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">$61.000 COP</span>
+</div>
+</div>
+</div>
+<!-- DIAN Electronic Invoice Strip -->
+<div class="mx-space-md p-space-sm rounded-lg bg-surface-container flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-charcoal-ink font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-tertiary">description</span>
+            Factura FEL-2026-00412
+          </span>
+<span class="font-label-micro text-label-micro text-status-in-stock font-bold">CUFE Certificado</span>
+</div>
+<p class="font-label-micro text-label-micro text-on-surface-variant font-mono truncate">CUFE: d311fa8912e...88bb01</p>
+</div>
+<!-- Action Footer -->
+<div class="p-space-md pt-space-sm flex gap-space-xs">
+<button class="flex-1 px-3 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-charcoal-ink font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">sim_card_download</span>
+          PDF &amp; XML
+        </button>
+<button class="flex-1 px-3 py-2.5 rounded-full bg-surface-container-low hover:bg-surface-container text-primary font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">repeat</span>
+          Pedir de nuevo
+        </button>
+</div>
+</article>
+<!-- Order 3: November 2025 (Black Friday Promo) -->
+<article class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<div class="p-space-md bg-surface-container-low/50 flex flex-col gap-2">
+<div class="flex items-start justify-between gap-space-xs">
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-charcoal-ink font-bold tracking-tight">#BEC-2025-9921</span>
+<span class="px-2 py-0.5 rounded-full bg-rose-dust/30 text-primary font-label-micro text-label-micro font-bold">
+                Black Friday Glow
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">28 de Noviembre 2025</p>
+</div>
+<div class="text-right">
+<span class="font-label-micro text-label-micro text-on-surface-variant block uppercase">Total Pagado</span>
+<div class="flex items-baseline justify-end gap-1">
+<span class="font-label-sm text-label-sm text-outline line-through">$185.000</span>
+<span class="font-title-md text-title-md text-charcoal-ink font-bold">$155.000 COP</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-tertiary">
+<span class="material-symbols-outlined text-[14px]">sell</span>
+            Cupón Ahorro -$30.000 Aplicado
+          </span>
+<span class="inline-flex items-center gap-1 font-label-micro text-label-micro text-status-in-stock font-semibold">
+<span class="material-symbols-outlined text-[14px]">done_all</span>
+            Entregado con éxito
+          </span>
+</div>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-14 rounded-lg bg-surface-clean shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Amber dropper glass bottle of Niacinamide and Zinc facial serum beside a minimalist jar of hyaluronic acid moisturizer cream, clean laboratory luxury aesthetic, subtle warm studio shadow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPMUiAZLsYk4EmTV0Mbj1vSdYf-38p9Xd31NThCerECMClX5MJlIcxb2JgeucXEx_ogaofPqrumdr2OSfsQBXcLWvIXGScmtPtc-8wFE4m98dybbCQunPAqTomIwlBYaiOP5VheajLeDSNPBNkd-qnqSj1J-qOQgamsfyJ2Q60ZO5WWYrOY0afOJRPWR6nMR3eb-Ahf_tt50G_JYgVJLHn4Kq9lPlr7a9K6DjsA36p9X-7ZeQSRPXH"/>
+</div>
+<div class="min-w-0 flex-1">
+<h3 class="font-label-md text-label-md text-charcoal-ink font-semibold truncate">Combo Restauración: Niacinamida 10% + Ácido Hialurónico</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Sérum 30ml + Crema Nutritiva 50ml</p>
+<span class="font-label-sm text-label-sm text-primary font-bold">$155.000 COP</span>
+</div>
+</div>
+</div>
+<div class="mx-space-md p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[17px] text-tertiary shrink-0">verified</span>
+<span class="font-label-micro text-label-micro text-charcoal-ink truncate">Factura FEL-2025-09148 • CUFE Validada</span>
+</div>
+<button class="text-primary hover:text-charcoal-ink font-label-sm text-label-sm font-bold flex items-center shrink-0" type="button">
+          PDF <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</button>
+</div>
+<div class="p-space-md pt-space-sm flex justify-end">
+<button class="w-full py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-charcoal-ink font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary">download</span>
+          Descargar Comprobante &amp; Retención
+        </button>
+</div>
+</article>
+</section>
+<!-- Legal DIAN Guarantee & Mass Consolidation Banner -->
+<section class="px-gutter-sm pb-space-lg">
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-start gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center shrink-0 text-primary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-charcoal-ink font-bold">Respaldo Tributario DIAN Colombia</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+            Todas tus compras cuentan con factura electrónica conforme al <strong>Decreto 358</strong> y <strong>Resolución 000042 de la DIAN</strong>. Tus archivos XML y PDF quedan archivados en tu cuenta por 5 años con plena validez fiscal.
+          </p>
+</div>
+</div>
+<div class="pt-space-xs flex flex-col gap-2">
+<button class="w-full py-3 px-4 rounded-full bg-surface-container-lowest hover:bg-surface-container-high text-charcoal-ink font-label-sm text-label-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px] text-tertiary">folder_zip</span>
+          Descargar Certificado Anual Consolidado 2025 - 2026
+        </button>
+<div class="flex items-center justify-between px-2 pt-1">
+<a class="font-label-micro text-label-micro text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">help_center</span>
+            PQRS o Aclaración de Facturas
+          </a>
+<span class="font-label-micro text-label-micro text-on-surface-variant font-mono">NIT: 901.482.119-4</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Micro-interactions for rating stars and tactile feedback
+  document.querySelectorAll('button[aria-label$="estrella"], button[aria-label$="estrellas"]').forEach(function(starBtn, index) {
+    starBtn.addEventListener('click', function() {
+      const parent = starBtn.parentElement;
+      const stars = parent.querySelectorAll('.material-symbols-outlined');
+      stars.forEach(function(s, i) {
+        if (i <= index) {
+          s.style.fontVariationSettings = "'FILL' 1";
+          s.classList.add('text-primary');
+          s.classList.remove('text-outline');
+        } else {
+          s.style.fontVariationSettings = "'FILL' 0";
+          s.classList.remove('text-primary');
+          s.classList.add('text-outline');
+        }
+      });
+    });
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(106,26,36,0.05)]" data-active-classes="text-primary font-bold"><div class="flex justify-around items-center h-16 px-gutter-sm max-w-md mx-auto"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-all" data-path="catalogo" href="#"><span class="material-symbols-outlined text-[22px]">home</span><span class="font-label-sm text-label-sm">Catálogo</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-all" data-path="categorias" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-sm text-label-sm">Categorías</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 relative text-on-surface-variant hover:text-primary transition-all" data-path="carrito" href="#"><div class="relative flex items-center justify-center"><span class="material-symbols-outlined text-[22px]">shopping_bag</span><span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-secondary"></span></div><span class="font-label-sm text-label-sm">Carrito</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-all" data-path="mis-pedidos" href="#"><span class="material-symbols-outlined text-[22px]">local_shipping</span><span class="font-label-sm text-label-sm">Mis Pedidos</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] gap-0.5 text-on-surface-variant hover:text-primary transition-all" data-path="perfil" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-label-sm text-label-sm">Perfil</span></a></div></nav></body></html>

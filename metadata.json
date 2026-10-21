@@ -1,0 +1,6 @@
+{
+  "name": "Belleza en un Clic - Cosmética & Logística Multisede",
+  "description": "Plataforma dermocosmética con trazabilidad en vivo por inventario local (Bogotá, Medellín, Cali), facturación electrónica DIAN, garantías sanitarias INVIMA y seguimiento satelital de pedidos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
